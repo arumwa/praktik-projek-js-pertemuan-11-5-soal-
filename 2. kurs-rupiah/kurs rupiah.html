@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurs Rupiah</title>
+</head>
+<body>
+<div>
+<fieldset>
+    <form name="form">
+        <table style="width: 100%;">
+        
+        <tr>
+			<td>Input Nilai Mata Uang</td>
+		</tr>
+        <tr>
+            <td><input type="text" name="nilai"></td>
+        </tr>
+
+        <tr>
+			<td style="padding-top: 10px;">Mata Uang Asing</td>
+		</tr>
+        <tr>
+            <td>
+                <select name="kursasing" onchange="konversikurs()" style="padding: 10px;">
+                <option value="pilih">-- Pilih Mata Uang Asing --</option>
+                <option value="USD">United State Dollar</option>
+                <option value="SGD">Dollar Singapore</option>
+                <option value="RM">Ringgit Malaysia</option>
+                <option value="YJ">Yen Jepan</option>
+                <option value="ER">Euro</option>
+                <option value="RAS">Riyal Arab Saudi</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr>
+			<td style="padding-top: 10px;">Nilai Rupiah</td>
+		</tr>
+        <tr>
+            <td><input type="text" name="kurs"></td>
+        </tr>
+        
+        </table>
+    </form>
+</fieldset>
+</div>
+</body>
+
+<style>
+    div	{
+	margin: auto ;
+	width: 400px;
+	margin-top: 100px;
+}
+table {
+	border-style: none;
+	border-collapse: collapse;
+	width: 100%;
+}
+th{
+	background-color: black;
+	padding: 5px;
+	border: none;
+	font-size: 16px;
+}
+td{
+	border: none;
+}
+input[type=text]{
+	padding: 10px;
+	width: 380px;
+	border-style: solid;
+	border-color: black;
+	font-size: 16px;
+}
+input[type=text]:disabled{
+	background-color: black;
+}
+
+button {
+	width: 100%;
+	height: 40px;
+	background-color: green;
+    border: none;
+    color: red;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+</style>
+
+<script>
+
+function konversikurs() {
+	var input = (document.form.nilai.value);
+	var kurs = (document.form.kursasing.value);
+	
+	var hasil = 0;
+
+	if(kurs == "USD"){
+		hasil = input*9915;
+	}
+	else if(kurs == "SGD"){
+		hasil = input*13472;
+	}
+	else if(kurs == "RM"){
+		hasil = input*874;
+	}
+	else if(kurs == "YJ"){
+		hasil = input*120;
+	}
+	else if(kurs == "ER"){
+		hasil = input*15888;
+	}
+    else if(kurs == "RAS"){
+		hasil = input*3592;
+	}
+	else{
+		hasil = 0;
+	}
+
+	document.form.kurs.value=eval(hasil);	
+} 
+
+</script>
+</html>
